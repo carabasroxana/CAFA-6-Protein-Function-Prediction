@@ -3,7 +3,38 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
-const aspectData = [
+type AspectKey = "bp" | "mf" | "cc";
+
+type Aspect = {
+  key: AspectKey;
+  label: string;
+  short: string;
+  icon: string;
+  question: string;
+  color: string;
+};
+
+type GoTerm = {
+  term: string;
+  name: string;
+  score: number;
+};
+
+type Example = {
+  id: string;
+  label: string;
+  sequence: string;
+  before: string[];
+  prediction: Record<AspectKey, GoTerm[]>;
+};
+
+type ModelVariant = {
+  title: string;
+  tag: string;
+  description: string;
+};
+
+const aspectData: Aspect[] = [
   {
     key: "bp",
     label: "Biological Process",
@@ -30,7 +61,7 @@ const aspectData = [
   },
 ];
 
-const modelVariants = [
+const modelVariants: ModelVariant[] = [
   {
     title: "CNN baseline",
     tag: "Variant 1",
@@ -57,7 +88,7 @@ const modelVariants = [
   },
 ];
 
-const examples = [
+const examples: Example[] = [
   {
     id: "A0A087X1C5",
     label: "Dataset-style example: binding + localization",
@@ -135,11 +166,11 @@ const examples = [
   },
 ];
 
-function scoreWidth(score) {
+function scoreWidth(score: number): string {
   return `${Math.round(score * 100)}%`;
 }
 
-function ProteinRibbon({ sequence }) {
+function ProteinRibbon({ sequence }: { sequence: string }) {
   const residues = sequence.slice(0, 96).split("");
   return (
     <div className="rounded-3xl border bg-white p-5 shadow-sm">
@@ -173,7 +204,13 @@ function ProteinRibbon({ sequence }) {
   );
 }
 
-function AspectPredictionCard({ aspect, terms }) {
+function AspectPredictionCard({
+  aspect,
+  terms,
+}: {
+  aspect: Aspect;
+  terms: GoTerm[];
+}) {
   return (
     <div className="rounded-2xl border bg-white p-4 shadow-sm">
       <div className="mb-3 flex items-center gap-3">
@@ -285,7 +322,7 @@ function VariantOverview() {
   );
 }
 
-function BeforeAfter({ example }) {
+function BeforeAfter({ example }: { example: Example }) {
   const textPrediction = useMemo(() => {
     const mf = example.prediction.mf[0]?.name;
     const bp = example.prediction.bp[0]?.name;
@@ -452,9 +489,10 @@ function ResultsPanel() {
 }
 
 export default function CafaThesisDemo() {
-  const [view, setView] = useState("demo");
+  const [view, setView] = useState<"demo" | "results">("demo");
   const [exampleIndex, setExampleIndex] = useState(0);
-  const example = examples[exampleIndex];
+  const example = examples[exampleIndex] ?? examples[0];
+
 
   return (
     <main className="min-h-screen bg-slate-50 p-6 text-slate-900">
