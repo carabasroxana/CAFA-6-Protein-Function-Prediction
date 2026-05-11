@@ -251,51 +251,6 @@ function AspectPredictionCard({
   );
 }
 
-function MiniProteinGraphic() {
-  return (
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 p-5 text-white shadow-xl">
-      <div className="absolute left-8 top-8 h-28 w-28 rounded-full bg-cyan-400 opacity-30 blur-3xl" />
-      <div className="absolute bottom-8 right-8 h-28 w-28 rounded-full bg-fuchsia-500 opacity-30 blur-3xl" />
-      <div className="relative z-10">
-        <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">
-          CAFA 6 thesis demo
-        </p>
-        <h2 className="mt-2 text-3xl font-bold">Sequence → GO annotation</h2>
-        <p className="mt-2 text-sm leading-6 text-slate-300">
-          The demo opens one protein example as an interpretable Gene Ontology
-          prediction.
-        </p>
-      </div>
-      <svg viewBox="0 0 430 170" className="relative z-10 mt-3 h-40 w-full">
-        <defs>
-          <linearGradient id="proteinLine" x1="0" x2="1">
-            <stop offset="0%" stopColor="#67e8f9" />
-            <stop offset="50%" stopColor="#a78bfa" />
-            <stop offset="100%" stopColor="#fb7185" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M25 88 C54 18, 91 18, 120 88 S188 158, 218 88 S285 18, 315 88 S382 158, 410 88"
-          fill="none"
-          stroke="url(#proteinLine)"
-          strokeWidth="15"
-          strokeLinecap="round"
-        />
-        {[28, 75, 122, 170, 218, 266, 314, 362, 410].map((x, i) => (
-          <circle
-            key={x}
-            cx={x}
-            cy={i % 2 ? 55 : 121}
-            r="9"
-            fill="white"
-            opacity="0.9"
-          />
-        ))}
-      </svg>
-    </div>
-  );
-}
-
 function VariantOverview() {
   return (
     <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -492,7 +447,6 @@ export default function CafaThesisDemo() {
   const [view, setView] = useState<"demo" | "results">("demo");
   const [exampleIndex, setExampleIndex] = useState(0);
   const example = examples[exampleIndex] ?? examples[0];
-
 
   return (
     <main className="min-h-screen bg-slate-50 p-6 text-slate-900">
