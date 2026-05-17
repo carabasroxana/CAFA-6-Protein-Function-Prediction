@@ -1,0 +1,1058 @@
+{
+  "summary": {
+    "training_proteins": 82404,
+    "test_proteins": 224309,
+    "training_annotation_rows": 537027,
+    "unique_go_terms": 26125,
+    "avg_annotations_per_protein": 6.52,
+    "median_annotations_per_protein": 4.0,
+    "sequence_length": {
+      "min": 3,
+      "median": 409.0,
+      "mean": 525.79,
+      "max": 35213
+    }
+  },
+  "amino_acids": [
+    {
+      "aa": "L",
+      "count": 4181227,
+      "percent": 9.65
+    },
+    {
+      "aa": "S",
+      "count": 3597577,
+      "percent": 8.3
+    },
+    {
+      "aa": "A",
+      "count": 3045567,
+      "percent": 7.03
+    },
+    {
+      "aa": "E",
+      "count": 2939528,
+      "percent": 6.78
+    },
+    {
+      "aa": "G",
+      "count": 2773867,
+      "percent": 6.4
+    },
+    {
+      "aa": "V",
+      "count": 2695646,
+      "percent": 6.22
+    },
+    {
+      "aa": "K",
+      "count": 2554736,
+      "percent": 5.9
+    },
+    {
+      "aa": "P",
+      "count": 2393286,
+      "percent": 5.52
+    },
+    {
+      "aa": "T",
+      "count": 2360559,
+      "percent": 5.45
+    },
+    {
+      "aa": "R",
+      "count": 2320830,
+      "percent": 5.36
+    },
+    {
+      "aa": "D",
+      "count": 2250638,
+      "percent": 5.19
+    },
+    {
+      "aa": "I",
+      "count": 2180599,
+      "percent": 5.03
+    },
+    {
+      "aa": "Q",
+      "count": 1906005,
+      "percent": 4.4
+    },
+    {
+      "aa": "N",
+      "count": 1847443,
+      "percent": 4.26
+    },
+    {
+      "aa": "F",
+      "count": 1684904,
+      "percent": 3.89
+    },
+    {
+      "aa": "Y",
+      "count": 1245800,
+      "percent": 2.88
+    },
+    {
+      "aa": "H",
+      "count": 1043404,
+      "percent": 2.41
+    },
+    {
+      "aa": "M",
+      "count": 979122,
+      "percent": 2.26
+    },
+    {
+      "aa": "C",
+      "count": 813693,
+      "percent": 1.88
+    },
+    {
+      "aa": "W",
+      "count": 511941,
+      "percent": 1.18
+    }
+  ],
+  "top_go_terms": {
+    "molecular_function": [
+      {
+        "term": "GO:0005515",
+        "name": "protein binding",
+        "count": 33713
+      },
+      {
+        "term": "GO:0042802",
+        "name": "identical protein binding",
+        "count": 3547
+      },
+      {
+        "term": "GO:0042803",
+        "name": "protein homodimerization activity",
+        "count": 1627
+      },
+      {
+        "term": "GO:0003723",
+        "name": "RNA binding",
+        "count": 1613
+      },
+      {
+        "term": "GO:0003677",
+        "name": "DNA binding",
+        "count": 1468
+      },
+      {
+        "term": "GO:0003700",
+        "name": "DNA-binding transcription factor activity",
+        "count": 1198
+      },
+      {
+        "term": "GO:0043565",
+        "name": "sequence-specific DNA binding",
+        "count": 1139
+      },
+      {
+        "term": "GO:0003729",
+        "name": "mRNA binding",
+        "count": 1138
+      }
+    ],
+    "biological_process": [
+      {
+        "term": "GO:0045944",
+        "name": "positive regulation of transcription by RNA polymerase II",
+        "count": 2319
+      },
+      {
+        "term": "GO:0000122",
+        "name": "negative regulation of transcription by RNA polymerase II",
+        "count": 1551
+      },
+      {
+        "term": "GO:0006355",
+        "name": "regulation of DNA-templated transcription",
+        "count": 1382
+      },
+      {
+        "term": "GO:0045893",
+        "name": "positive regulation of DNA-templated transcription",
+        "count": 1348
+      },
+      {
+        "term": "GO:0045892",
+        "name": "negative regulation of DNA-templated transcription",
+        "count": 1068
+      },
+      {
+        "term": "GO:0010628",
+        "name": "positive regulation of gene expression",
+        "count": 875
+      },
+      {
+        "term": "GO:0006357",
+        "name": "regulation of transcription by RNA polymerase II",
+        "count": 875
+      },
+      {
+        "term": "GO:0007165",
+        "name": "signal transduction",
+        "count": 804
+      }
+    ],
+    "cellular_component": [
+      {
+        "term": "GO:0005634",
+        "name": "nucleus",
+        "count": 13283
+      },
+      {
+        "term": "GO:0005829",
+        "name": "cytosol",
+        "count": 13040
+      },
+      {
+        "term": "GO:0005886",
+        "name": "plasma membrane",
+        "count": 10150
+      },
+      {
+        "term": "GO:0005737",
+        "name": "cytoplasm",
+        "count": 9442
+      },
+      {
+        "term": "GO:0005739",
+        "name": "mitochondrion",
+        "count": 5807
+      },
+      {
+        "term": "GO:0005654",
+        "name": "nucleoplasm",
+        "count": 5065
+      },
+      {
+        "term": "GO:0016020",
+        "name": "membrane",
+        "count": 3563
+      },
+      {
+        "term": "GO:0005576",
+        "name": "extracellular region",
+        "count": 3241
+      }
+    ]
+  },
+  "rare_go_term_counts": {
+    "molecular_function": 1675,
+    "biological_process": 3398,
+    "cellular_component": 304
+  },
+  "rare_examples": {
+    "molecular_function": [
+      {
+        "term": "GO:0000007",
+        "name": "low-affinity zinc ion transmembrane transporter activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0000010",
+        "name": "heptaprenyl diphosphate synthase activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0000277",
+        "name": "[cytochrome c]-lysine N-methyltransferase activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0000319",
+        "name": "sulfite transmembrane transporter activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0000401",
+        "name": "open form four-way junction DNA binding",
+        "count": 1
+      },
+      {
+        "term": "GO:0000702",
+        "name": "oxidized base lesion DNA N-glycosylase activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0000830",
+        "name": "inositol hexakisphosphate 4-kinase activity",
+        "count": 1
+      },
+      {
+        "term": "GO:0001052",
+        "name": "plastid PEP RNA polymerase core enzyme binding",
+        "count": 1
+      }
+    ],
+    "biological_process": [
+      {
+        "term": "GO:0000024",
+        "name": "maltose biosynthetic process",
+        "count": 1
+      },
+      {
+        "term": "GO:0000374",
+        "name": "Group III intron splicing",
+        "count": 1
+      },
+      {
+        "term": "GO:0000376",
+        "name": "RNA splicing, via transesterification reactions with guanosine as nucleophile",
+        "count": 1
+      },
+      {
+        "term": "GO:0000378",
+        "name": "RNA exon ligation",
+        "count": 1
+      },
+      {
+        "term": "GO:0000477",
+        "name": "generation of mature 5'-end of LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)",
+        "count": 1
+      },
+      {
+        "term": "GO:0000488",
+        "name": "maturation of LSU-rRNA from tetracistronic rRNA transcript (SSU-rRNA, LSU-rRNA, 4.5S-rRNA, 5S-rRNA)",
+        "count": 1
+      },
+      {
+        "term": "GO:0000489",
+        "name": "maturation of SSU-rRNA from tetracistronic rRNA transcript (SSU-rRNA, LSU-rRNA, 4.5S-rRNA, 5S-rRNA)",
+        "count": 1
+      },
+      {
+        "term": "GO:0000705",
+        "name": "achiasmate meiosis I",
+        "count": 1
+      }
+    ],
+    "cellular_component": [
+      {
+        "term": "GO:0000312",
+        "name": "plastid small ribosomal subunit",
+        "count": 1
+      },
+      {
+        "term": "GO:0000327",
+        "name": "lytic vacuole within protein storage vacuole",
+        "count": 1
+      },
+      {
+        "term": "GO:0000399",
+        "name": "cellular bud neck septin structure",
+        "count": 1
+      },
+      {
+        "term": "GO:0000835",
+        "name": "ER ubiquitin ligase complex",
+        "count": 1
+      },
+      {
+        "term": "GO:0002197",
+        "name": "xanthine dehydrogenase complex",
+        "count": 1
+      },
+      {
+        "term": "GO:0005582",
+        "name": "collagen type XV trimer",
+        "count": 1
+      },
+      {
+        "term": "GO:0005590",
+        "name": "collagen type VII trimer",
+        "count": 1
+      },
+      {
+        "term": "GO:0005597",
+        "name": "collagen type XVI trimer",
+        "count": 1
+      }
+    ]
+  },
+  "top_taxa": [
+    {
+      "taxon": "9606",
+      "species": "Homo sapiens",
+      "count": 17162
+    },
+    {
+      "taxon": "10090",
+      "species": "Mus musculus",
+      "count": 12508
+    },
+    {
+      "taxon": "3702",
+      "species": "Arabidopsis thaliana",
+      "count": 11863
+    },
+    {
+      "taxon": "559292",
+      "species": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
+      "count": 5520
+    },
+    {
+      "taxon": "10116",
+      "species": "Rattus norvegicus",
+      "count": 4909
+    },
+    {
+      "taxon": "284812",
+      "species": "Schizosaccharomyces pombe (strain 972 / ATCC 24843)",
+      "count": 4636
+    },
+    {
+      "taxon": "83333",
+      "species": "Escherichia coli (strain K12)",
+      "count": 3466
+    },
+    {
+      "taxon": "7227",
+      "species": "Drosophila melanogaster",
+      "count": 3201
+    },
+    {
+      "taxon": "6239",
+      "species": "Caenorhabditis elegans",
+      "count": 2540
+    },
+    {
+      "taxon": "83332",
+      "species": "Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)",
+      "count": 1530
+    },
+    {
+      "taxon": "7955",
+      "species": "Danio rerio",
+      "count": 1384
+    },
+    {
+      "taxon": "44689",
+      "species": "Dictyostelium discoideum",
+      "count": 1277
+    },
+    {
+      "taxon": "39947",
+      "species": "Oryza sativa subsp. japonica",
+      "count": 1076
+    },
+    {
+      "taxon": "9913",
+      "species": "Bos taurus",
+      "count": 902
+    },
+    {
+      "taxon": "9031",
+      "species": "Gallus gallus",
+      "count": 636
+    }
+  ],
+  "cellular_location_aa_stats": [
+    {
+      "term": "GO:0005634",
+      "name": "nucleus",
+      "proteins": 13283,
+      "most_common_aa": "L",
+      "aa_percent": 9.01,
+      "median_length": 422,
+      "sample_proteins": [
+        "Q6PFR5",
+        "Q7L5A3",
+        "Q9C8J7",
+        "Q9SUI6",
+        "Q15007"
+      ]
+    },
+    {
+      "term": "GO:0005829",
+      "name": "cytosol",
+      "proteins": 13040,
+      "most_common_aa": "L",
+      "aa_percent": 9.68,
+      "median_length": 407,
+      "sample_proteins": [
+        "P63027",
+        "Q96T76",
+        "Q9UD71",
+        "P40031",
+        "C9JRZ8"
+      ]
+    },
+    {
+      "term": "GO:0005886",
+      "name": "plasma membrane",
+      "proteins": 10150,
+      "most_common_aa": "L",
+      "aa_percent": 10.12,
+      "median_length": 464,
+      "sample_proteins": [
+        "P63027",
+        "P55850",
+        "P60570",
+        "Q9LZB8",
+        "P43297"
+      ]
+    },
+    {
+      "term": "GO:0005737",
+      "name": "cytoplasm",
+      "proteins": 9442,
+      "most_common_aa": "L",
+      "aa_percent": 9.56,
+      "median_length": 446,
+      "sample_proteins": [
+        "P55850",
+        "P91124",
+        "Q04418",
+        "Q5XJA3",
+        "P43297"
+      ]
+    },
+    {
+      "term": "GO:0005739",
+      "name": "mitochondrion",
+      "proteins": 5807,
+      "most_common_aa": "L",
+      "aa_percent": 10.03,
+      "median_length": 359,
+      "sample_proteins": [
+        "Q9VUF8",
+        "O81027",
+        "P28331",
+        "C9JRZ8",
+        "Q9SHJ5"
+      ]
+    },
+    {
+      "term": "GO:0005654",
+      "name": "nucleoplasm",
+      "proteins": 5065,
+      "most_common_aa": "L",
+      "aa_percent": 9.22,
+      "median_length": 475,
+      "sample_proteins": [
+        "Q96T76",
+        "Q6MZP7",
+        "Q15007",
+        "Q2NL82",
+        "Q9UK61"
+      ]
+    },
+    {
+      "term": "GO:0016020",
+      "name": "membrane",
+      "proteins": 3563,
+      "most_common_aa": "L",
+      "aa_percent": 10.32,
+      "median_length": 483,
+      "sample_proteins": [
+        "Q8R2Z3",
+        "P63027",
+        "P06781",
+        "Q9SHJ5",
+        "Q9ZT16"
+      ]
+    },
+    {
+      "term": "GO:0005576",
+      "name": "extracellular region",
+      "proteins": 3241,
+      "most_common_aa": "L",
+      "aa_percent": 8.74,
+      "median_length": 256,
+      "sample_proteins": [
+        "P55850",
+        "P86728",
+        "P9WG29",
+        "P30041",
+        "L0PIN3"
+      ]
+    },
+    {
+      "term": "GO:0005783",
+      "name": "endoplasmic reticulum",
+      "proteins": 2837,
+      "most_common_aa": "L",
+      "aa_percent": 10.49,
+      "median_length": 412,
+      "sample_proteins": [
+        "Q03370",
+        "Q9M647",
+        "Q9FH16",
+        "O18229",
+        "Q9STX5"
+      ]
+    },
+    {
+      "term": "GO:0005615",
+      "name": "extracellular space",
+      "proteins": 2391,
+      "most_common_aa": "L",
+      "aa_percent": 9.18,
+      "median_length": 330,
+      "sample_proteins": [
+        "P30041",
+        "Q9JJS0",
+        "P04441",
+        "P07711",
+        "P35577"
+      ]
+    }
+  ],
+  "function_to_proteins": [
+    {
+      "term": "GO:0005515",
+      "name": "protein binding",
+      "aspect": "Molecular Function",
+      "count": 33713,
+      "sample_proteins": [
+        "Q5W0B1",
+        "Q8IZR5",
+        "P63027",
+        "Q6RSH7",
+        "Q03370",
+        "Q6PFR5"
+      ]
+    },
+    {
+      "term": "GO:0005634",
+      "name": "nucleus",
+      "aspect": "Cellular Component",
+      "count": 13283,
+      "sample_proteins": [
+        "Q6PFR5",
+        "Q7L5A3",
+        "Q9C8J7",
+        "Q9SUI6",
+        "Q15007",
+        "O14359"
+      ]
+    },
+    {
+      "term": "GO:0005829",
+      "name": "cytosol",
+      "aspect": "Cellular Component",
+      "count": 13040,
+      "sample_proteins": [
+        "P63027",
+        "Q96T76",
+        "Q9UD71",
+        "P40031",
+        "C9JRZ8",
+        "O14359"
+      ]
+    },
+    {
+      "term": "GO:0005886",
+      "name": "plasma membrane",
+      "aspect": "Cellular Component",
+      "count": 10150,
+      "sample_proteins": [
+        "P63027",
+        "P55850",
+        "P60570",
+        "Q9LZB8",
+        "P43297",
+        "P0AAE2"
+      ]
+    },
+    {
+      "term": "GO:0005737",
+      "name": "cytoplasm",
+      "aspect": "Cellular Component",
+      "count": 9442,
+      "sample_proteins": [
+        "P55850",
+        "P91124",
+        "Q04418",
+        "Q5XJA3",
+        "P43297",
+        "P30041"
+      ]
+    },
+    {
+      "term": "GO:0005739",
+      "name": "mitochondrion",
+      "aspect": "Cellular Component",
+      "count": 5807,
+      "sample_proteins": [
+        "Q9VUF8",
+        "O81027",
+        "P28331",
+        "C9JRZ8",
+        "Q9SHJ5",
+        "P28493"
+      ]
+    },
+    {
+      "term": "GO:0005654",
+      "name": "nucleoplasm",
+      "aspect": "Cellular Component",
+      "count": 5065,
+      "sample_proteins": [
+        "Q96T76",
+        "Q6MZP7",
+        "Q15007",
+        "Q2NL82",
+        "Q9UK61",
+        "Q94527"
+      ]
+    },
+    {
+      "term": "GO:0016020",
+      "name": "membrane",
+      "aspect": "Cellular Component",
+      "count": 3563,
+      "sample_proteins": [
+        "Q8R2Z3",
+        "P63027",
+        "P06781",
+        "Q9SHJ5",
+        "Q9ZT16",
+        "P30041"
+      ]
+    },
+    {
+      "term": "GO:0042802",
+      "name": "identical protein binding",
+      "aspect": "Molecular Function",
+      "count": 3547,
+      "sample_proteins": [
+        "Q6PFR5",
+        "Q15007",
+        "P30041",
+        "P04797",
+        "Q8BVZ1",
+        "Q06496"
+      ]
+    },
+    {
+      "term": "GO:0005576",
+      "name": "extracellular region",
+      "aspect": "Cellular Component",
+      "count": 3241,
+      "sample_proteins": [
+        "P55850",
+        "P86728",
+        "P9WG29",
+        "P30041",
+        "L0PIN3",
+        "P07711"
+      ]
+    },
+    {
+      "term": "GO:0005783",
+      "name": "endoplasmic reticulum",
+      "aspect": "Cellular Component",
+      "count": 2837,
+      "sample_proteins": [
+        "Q03370",
+        "Q9M647",
+        "Q9FH16",
+        "O18229",
+        "Q9STX5",
+        "Q12117"
+      ]
+    },
+    {
+      "term": "GO:0005615",
+      "name": "extracellular space",
+      "aspect": "Cellular Component",
+      "count": 2391,
+      "sample_proteins": [
+        "P30041",
+        "Q9JJS0",
+        "P04441",
+        "P07711",
+        "P35577",
+        "P01579"
+      ]
+    },
+    {
+      "term": "GO:0045944",
+      "name": "positive regulation of transcription by RNA polymerase II",
+      "aspect": "Biological Process",
+      "count": 2319,
+      "sample_proteins": [
+        "P10070",
+        "Q94527",
+        "P14737",
+        "Q9U405",
+        "O14280",
+        "Q08639"
+      ]
+    },
+    {
+      "term": "GO:0070062",
+      "name": "extracellular exosome",
+      "aspect": "Cellular Component",
+      "count": 2130,
+      "sample_proteins": [
+        "P07998",
+        "P11217",
+        "P30041",
+        "P07711",
+        "P40241",
+        "Q16563"
+      ]
+    },
+    {
+      "term": "GO:0005794",
+      "name": "Golgi apparatus",
+      "aspect": "Cellular Component",
+      "count": 2045,
+      "sample_proteins": [
+        "Q3EC77",
+        "P40616",
+        "P91124",
+        "P32621",
+        "Q5XJA3",
+        "Q6P2H3"
+      ]
+    }
+  ],
+  "protein_examples": [
+    {
+      "id": "A0A0C5B5G6",
+      "length": 16,
+      "sequence": "MRWQEMGYIFYPRKLR",
+      "annotation_count": 14,
+      "known_terms": {
+        "mf": [
+          {
+            "term": "GO:0003677",
+            "name": "DNA binding"
+          },
+          {
+            "term": "GO:0140297",
+            "name": "DNA-binding transcription factor binding"
+          }
+        ],
+        "bp": [
+          {
+            "term": "GO:0001649",
+            "name": "osteoblast differentiation"
+          },
+          {
+            "term": "GO:0033687",
+            "name": "osteoblast proliferation"
+          },
+          {
+            "term": "GO:0043610",
+            "name": "regulation of carbohydrate utilization"
+          },
+          {
+            "term": "GO:2001145",
+            "name": "negative regulation of phosphatidylinositol-3,4,5-trisphosphate 5-phosphatase activity"
+          },
+          {
+            "term": "GO:0032147",
+            "name": "activation of protein kinase activity"
+          }
+        ],
+        "cc": [
+          {
+            "term": "GO:0005615",
+            "name": "extracellular space"
+          },
+          {
+            "term": "GO:0005634",
+            "name": "nucleus"
+          },
+          {
+            "term": "GO:0005739",
+            "name": "mitochondrion"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P63027",
+      "length": 116,
+      "sequence": "MSATAATAPPAAPAGEGGPPAPPPNLTSNRRLQQTQAQVDEVVDIMRVNVDKVLERDQKLSELDDRADALQAGASQFETSAAKLKRKYWWKNLKMMIILGVICAIILIIIIVYFST",
+      "annotation_count": 20,
+      "known_terms": {
+        "mf": [
+          {
+            "term": "GO:0005515",
+            "name": "protein binding"
+          },
+          {
+            "term": "GO:0019905",
+            "name": "syntaxin binding"
+          }
+        ],
+        "bp": [
+          {
+            "term": "GO:0016079",
+            "name": "synaptic vesicle exocytosis"
+          },
+          {
+            "term": "GO:0006887",
+            "name": "exocytosis"
+          },
+          {
+            "term": "GO:0015031",
+            "name": "protein transport"
+          },
+          {
+            "term": "GO:0006906",
+            "name": "vesicle fusion"
+          },
+          {
+            "term": "GO:0043308",
+            "name": "eosinophil degranulation"
+          }
+        ],
+        "cc": [
+          {
+            "term": "GO:0008021",
+            "name": "synaptic vesicle"
+          },
+          {
+            "term": "GO:0031201",
+            "name": "SNARE complex"
+          },
+          {
+            "term": "GO:0016020",
+            "name": "membrane"
+          },
+          {
+            "term": "GO:0031982",
+            "name": "vesicle"
+          },
+          {
+            "term": "GO:0030136",
+            "name": "clathrin-coated vesicle"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q6PFR5",
+      "length": 281,
+      "sequence": "MSDVEENNFEGRESRSQSKSPTGTPARVKSESRSGSRSPSRVSKHSESHSRSRSKSRSRSRRHSHRRYTRSRSHSHRRRSRSRSYTPEYRRRRSRSHSPMSNRRRHTGSRANPDPNTCLGVFGLSLYTTERDLREVFSRYGPLSGVNVVYDQRTGRSRGFAFVYFERIDDSKEAMERANG...",
+      "annotation_count": 4,
+      "known_terms": {
+        "mf": [
+          {
+            "term": "GO:0005515",
+            "name": "protein binding"
+          },
+          {
+            "term": "GO:0042802",
+            "name": "identical protein binding"
+          }
+        ],
+        "bp": [
+          {
+            "term": "GO:0048026",
+            "name": "positive regulation of mRNA splicing, via spliceosome"
+          }
+        ],
+        "cc": [
+          {
+            "term": "GO:0005634",
+            "name": "nucleus"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P12345",
+      "length": 430,
+      "sequence": "MALLHSARVLSGVASAFHPGLAAAASARASSWWAHVEMGPPDPILGVTEAYKRDTNSKKMNLGVGAYRDDNGKPYVLPSVRKAEAQIAAKGLDKEYLPIGGLAEFCRASAELALGENSEVVKSGRFVTVQTISGTGALRIGASFLQRFFKFSRDVFLPKPSWGNHTPIFRDAGMQLQSYR...",
+      "annotation_count": 1,
+      "known_terms": {
+        "mf": [],
+        "bp": [
+          {
+            "term": "GO:0006457",
+            "name": "protein folding"
+          }
+        ],
+        "cc": []
+      }
+    },
+    {
+      "id": "Q02248",
+      "length": 781,
+      "sequence": "MATQADLMELDMAMEPDRKAAVSHWQQQSYLDSGIHSGATTTAPSLSGKGNPEEEDVDTSQVLYEWEQGFSQSFTQEQVADIDGQYAMTRAQRVRAAMFPETLDEGMQIPSTQFDAAHPTNVQRLAEPSQMLKHAVVNLINYQDDAELATRAIPELTKLLNDEDQVVVNKAAVMVHQLSK...",
+      "annotation_count": 233,
+      "known_terms": {
+        "mf": [
+          {
+            "term": "GO:0003682",
+            "name": "chromatin binding"
+          },
+          {
+            "term": "GO:0003713",
+            "name": "transcription coactivator activity"
+          },
+          {
+            "term": "GO:0019899",
+            "name": "enzyme binding"
+          },
+          {
+            "term": "GO:0019901",
+            "name": "protein kinase binding"
+          },
+          {
+            "term": "GO:0005515",
+            "name": "protein binding"
+          }
+        ],
+        "bp": [
+          {
+            "term": "GO:0048643",
+            "name": "positive regulation of skeletal muscle tissue development"
+          },
+          {
+            "term": "GO:0060070",
+            "name": "canonical Wnt signaling pathway"
+          },
+          {
+            "term": "GO:0045944",
+            "name": "positive regulation of transcription by RNA polymerase II"
+          },
+          {
+            "term": "GO:0036520",
+            "name": "astrocyte-dopaminergic neuron signaling"
+          },
+          {
+            "term": "GO:0010629",
+            "name": "negative regulation of gene expression"
+          }
+        ],
+        "cc": [
+          {
+            "term": "GO:0005634",
+            "name": "nucleus"
+          },
+          {
+            "term": "GO:0005829",
+            "name": "cytosol"
+          },
+          {
+            "term": "GO:0016020",
+            "name": "membrane"
+          },
+          {
+            "term": "GO:1990907",
+            "name": "beta-catenin-TCF complex"
+          },
+          {
+            "term": "GO:1990909",
+            "name": "Wnt signalosome"
+          }
+        ]
+      }
+    }
+  ]
+}
