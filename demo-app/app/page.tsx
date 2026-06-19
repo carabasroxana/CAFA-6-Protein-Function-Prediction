@@ -410,7 +410,7 @@ function ClassifyPanel() {
           Back to options
         </button>
 
-        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className={`grid gap-5 ${cleanedCustomSequence ? "lg:grid-cols-[0.9fr_1.1fr]" : ""}`}>
           <div className="rounded-3xl border bg-white p-5 shadow-sm">
             <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Try your own protein</p>
             <textarea
@@ -429,7 +429,7 @@ function ClassifyPanel() {
             </div>
           </div>
 
-          <ProteinRibbon sequence={cleanedCustomSequence || "MEEPQSDPSVEPPLSQETFSDLWKLLPENNVLSPLPSQAMDDL"} />
+          {cleanedCustomSequence && <ProteinRibbon sequence={cleanedCustomSequence} />}
         </div>
       </section>
     );
