@@ -213,6 +213,45 @@ function cleanSequence(input: string): string {
   return input.toUpperCase().replace(/[^ACDEFGHIKLMNPQRSTVWY]/g, "");
 }
 
+function aminoAcidComposition(sequence: string): Record<string, number> {
+  const composition: Record<string, number> = {};
+
+  for (const residue of sequence) {
+    composition[residue] = (composition[residue] ?? 0) + 1 / sequence.length;
+  }
+
+  return composition;
+}
+
+function getCustomDemoPrediction(sequence: string): {
+  referenceId: string;
+  prediction: Record<AspectKey, PredictionTerm[]>;
+} {
+  const inputComposition = aminoAcidComposition(sequence);
+  const nearestExample = predictionExamples.reduce(
+    (nearest, candidate) => {
+      const candidateComposition = aminoAcidComposition(candidate.sequence);
+      const compositionDistance = "ACDEFGHIKLMNPQRSTVWY"
+        .split("")
+        .reduce(
+          (total, residue) =>
+            total + Math.abs((inputComposition[residue] ?? 0) - (candidateComposition[residue] ?? 0)),
+          0,
+        );
+      const lengthDistance = Math.abs(Math.log(sequence.length / candidate.sequence.length)) * 0.08;
+      const distance = compositionDistance + lengthDistance;
+
+      return distance < nearest.distance ? { example: candidate, distance } : nearest;
+    },
+    { example: predictionExamples[0], distance: Number.POSITIVE_INFINITY },
+  ).example;
+
+  return {
+    referenceId: nearestExample.id,
+    prediction: nearestExample.prediction,
+  };
+}
+
 function StatCard({ label, value, note }: { label: string; value: string; note: string }) {
   return (
     <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
@@ -361,6 +400,10 @@ function ClassifyPanel() {
   const [customSequence, setCustomSequence] = useState("");
   const example = predictionExamples[exampleIndex] ?? predictionExamples[0];
   const cleanedCustomSequence = cleanSequence(customSequence);
+  const customDemoPrediction = useMemo(
+    () => (cleanedCustomSequence ? getCustomDemoPrediction(cleanedCustomSequence) : null),
+    [cleanedCustomSequence],
+  );
 
   const textPrediction = useMemo(() => {
     const mf = example.prediction.mf[0]?.name ?? "a predicted";
@@ -420,7 +463,8 @@ function ClassifyPanel() {
               className="mt-3 min-h-56 w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 font-mono text-sm outline-none ring-indigo-200 transition focus:ring-4"
             />
             <div className="mt-3 rounded-2xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">
-              A new sequence would be processed by the offline model pipeline before predictions appear here.
+              This interactive demo estimates functions from the closest precomputed protein. The full offline model
+              pipeline is required for a validated prediction.
               {cleanedCustomSequence && (
                 <span className="mt-2 block font-semibold">
                   Cleaned sequence length: {cleanedCustomSequence.length} residues
@@ -431,6 +475,32 @@ function ClassifyPanel() {
 
           {cleanedCustomSequence && <ProteinRibbon sequence={cleanedCustomSequence} />}
         </div>
+
+        {customDemoPrediction && (
+          <div className="rounded-3xl border bg-white p-4 shadow-sm">
+            <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-slate-400">After prediction</p>
+                <h3 className="text-lg font-semibold text-slate-900">Candidate GO functions</h3>
+                <p className="mt-1 text-xs text-slate-500">
+                  Similarity reference: <span className="font-mono font-semibold">{customDemoPrediction.referenceId}</span>
+                </p>
+              </div>
+              <span className="w-fit rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                similarity-based demo
+              </span>
+            </div>
+            <div className="grid gap-3 md:grid-cols-3">
+              {aspectData.map((aspect) => (
+                <AspectPredictionCard
+                  key={aspect.key}
+                  aspect={aspect}
+                  terms={customDemoPrediction.prediction[aspect.key]}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
     );
   }
