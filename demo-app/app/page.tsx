@@ -250,19 +250,6 @@ function scoreWidth(score: number): string {
   return `${Math.round(score * 100)}%`;
 }
 
-function contextualizeTextPrediction(description: string): string {
-  const predictionStart = description.indexOf(" is predicted ");
-  const goTerms = Array.from(new Set(description.match(/GO:\d{7}/g) ?? []));
-
-  if (predictionStart < 0 || goTerms.length === 0) {
-    return description;
-  }
-
-  const proteinId = description.slice(0, predictionStart);
-  const prediction = description.slice(predictionStart + 1);
-  return `${proteinId} with GO terms ${goTerms.join(", ")} ${prediction}`;
-}
-
 function cleanSequence(input: string): string {
   return input.toUpperCase().replace(/[^ACDEFGHIKLMNPQRSTVWY]/g, "");
 }
@@ -632,9 +619,7 @@ function ClassifyPanel() {
                     </span>
                     <span className="text-xs text-slate-400">submission confidence</span>
                   </div>
-                  <p className="text-sm leading-7 text-slate-700">
-                    {contextualizeTextPrediction(textPrediction.description)}
-                  </p>
+                  <p className="text-sm leading-7 text-slate-700">{textPrediction.description}</p>
                 </div>
               ))}
             </div>
