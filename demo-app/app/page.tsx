@@ -21,6 +21,7 @@ type Aspect = {
 };
 
 type PredictionTerm = { term: string; name: string; score: number };
+type TextPrediction = { score: number; description: string };
 type KnownTerm = { term: string; name: string };
 type CountedTerm = { term: string; name: string; count: number };
 
@@ -30,6 +31,7 @@ type ProteinPredictionExample = {
   sequence: string;
   before: string[];
   prediction: Record<AspectKey, PredictionTerm[]>;
+  textPredictions: TextPrediction[];
 };
 
 type CorpusProteinExample = {
@@ -143,61 +145,100 @@ const modelVariants: ModelVariant[] = [
 
 const predictionExamples: ProteinPredictionExample[] = [
   {
-    id: "A0A087X1C5",
-    label: "Dataset-style example: binding + localization",
+    id: "A0A017SE85",
+    label: "Transcription regulation, stress response and kinetochore",
     sequence:
-      "MEEPQSDPSVEPPLSQETFSDLWKLLPENNVLSPLPSQAMDDLMLSPDDIEQWFTEDPGPDEAPRMPEAAPPVAPAPAAPTPAAPAPAPSWPLSSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKMFCQLWVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSSDGLAPPQHLIRVEGNLRVEYLDDRNTFRHSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILTIITLEDSDGNLVYQAIHLK",
-    before: ["Unknown function", "Only sequence is available", "No readable biological explanation"],
+      "MDGKTYKLRASCNACNESKVRCSQTKPTCARCERNKTTCVYGLSRRTHKDAPPISLSHSHSHSHSGSQPHSHSGSRRSSVHIPNATATANATTTANYTSTTTPFMPLHENSMTSYPPQPSVDQFFAQQQPHHQQPSTAGPGPGILSPANLDLPSFMTPLPTPNEDHTNSLFSSFGNFAAGVGGVNGSVNNILTPLTGSPGTGTSASTSTDMFQQPQVQECTCHAGVMEQMASMSQPSRNEERRLSLDVQLSQLKRCIIASEASMGCGHHGNGDSEPINIISVAMLIGRIIDEFELMLNERIGRGTTMPERERSLSLDEATISIREPRLCWGVLELEDDDEVELRQRLYLLYFRKLERLLSQLNVFVRTLHDSRGGSCNPTFIMACEYIHLWLEKKAEGVKRLFPAADEYTGRIPS",
+    before: ["CAFA target sequence", "Offline prediction completed", "Submission rows available"],
     prediction: {
       mf: [
-        { term: "GO:0005515", name: "protein binding", score: 0.86 },
-        { term: "GO:0003674", name: "molecular function", score: 0.62 },
+        { term: "GO:0001228", name: "DNA-binding transcription activator activity, RNA polymerase II-specific", score: 0.522536 },
+        { term: "GO:0001216", name: "DNA-binding transcription activator activity", score: 0.522536 },
+        { term: "GO:0003700", name: "DNA-binding transcription factor activity", score: 0.522536 },
+        { term: "GO:0000981", name: "DNA-binding transcription factor activity, RNA polymerase II-specific", score: 0.522536 },
       ],
       bp: [
-        { term: "GO:0006351", name: "transcription, DNA-templated", score: 0.48 },
-        { term: "GO:0008150", name: "biological process", score: 0.41 },
+        { term: "GO:0006979", name: "response to oxidative stress", score: 0.524878 },
+        { term: "GO:0008150", name: "biological_process", score: 0.524878 },
+        { term: "GO:0006950", name: "response to stress", score: 0.524878 },
+        { term: "GO:0050896", name: "response to stimulus", score: 0.524878 },
       ],
       cc: [
-        { term: "GO:0005634", name: "nucleus", score: 0.77 },
-        { term: "GO:0005829", name: "cytosol", score: 0.71 },
-        { term: "GO:0005886", name: "plasma membrane", score: 0.63 },
+        { term: "GO:0000776", name: "kinetochore", score: 0.599558 },
+        { term: "GO:0043228", name: "membraneless organelle", score: 0.599558 },
+        { term: "GO:0099080", name: "supramolecular complex", score: 0.599558 },
+        { term: "GO:0043226", name: "organelle", score: 0.599558 },
       ],
     },
+    textPredictions: [
+      { score: 0.523, description: "A0A017SE85 is predicted to have molecular function(s): DNA-binding transcription activator activity, RNA polymerase II-specific (GO:0001228); DNA-binding transcription activator activity (GO:0001216); DNA-binding transcription factor activity (GO:0003700); DNA-binding transcription factor activity, RNA polymerase II-specific (GO:0000981)." },
+      { score: 0.525, description: "A0A017SE85 is predicted to participate in: response to oxidative stress (GO:0006979); biological_process (GO:0008150); response to stress (GO:0006950); response to stimulus (GO:0050896)." },
+      { score: 0.600, description: "A0A017SE85 is predicted to be localized to / part of: kinetochore (GO:0000776); membraneless organelle (GO:0043228); supramolecular complex (GO:0099080); organelle (GO:0043226)." },
+    ],
   },
   {
-    id: "P12345",
-    label: "Clear example: kinase-like story",
+    id: "A0A017SEX7",
+    label: "Ribosome structure, mitochondrial localization and matrix",
     sequence:
-      "MGSSHHHHHHSSGLVPRGSHMASMTGGQQMGRGSEFELRRQQEGDYYKLAQEVGVDGIVLDVGCGTGKSTLLRLLAGQFPEGLVVVSRDGTQSFVDLKEGEKVRLQIWDTAGQERFRTITSSYYRGAHGIIVVYDVTDQESFNNVKQWLQEIDRYASENVNKLLVGNKCDMEEILKALQAQKVPVLVFANKQDLPKGHVRAQLQEEDVEQYIKALR",
-    before: ["Raw amino-acid sequence", "Function not obvious", "Needs GO annotation"],
+      "MNDDPPCIVGMACRLPGDVRSPSQLWDLVINQKTGQGPTPPIRYNVDGYYHPDGNRSGGINVPGGYFINEDIRQFDNGFFGINNLEATYMDPQQRKLLEVVFECFESTGASMKSMSGSNTGVYVGNFSVDYQPMQTRDADYLHRYTSTGSGATIMSNRISHVFNLHGPSFTLDTACSSSVYALHQALTAIKVGDCESAVVASANLIMSPELHIGAAKSGVLSPTGTCHTFDASADGYGRAEGVNAIYVKRLSAALRDGNQIRAIVRGSAVNANGRTPGIALPSGNLQEAVMRKAYQNAGLDFAETDYVECHGTGTPVGDPIEVDAVGRCFFRPQGQAPLLIGSVKTNIGHSEAASGLSSVLKVVTAFEKGQIPPTHGLVKLNPKLIPILEQRNLKVVTQADQWPRALRRASVNSFGYGGANAHVILESADSYLSQYFPGRLVTQKRRIENSDQVVVLPVSAASSKSLDIRVQDISQAVSKLFDAENLQGLAYTLTNRRDHLRHKSFLLAKYEGSGKLVEAVEDANNSSDREGLPFGFVFTGQGAQYAGMAKELLAHNRQFRNTIHRLDDVLKALPDPYAPDWTLEQTLLDGPSESRINEVTRSQPICTALQVGLVDLLRSWGVSPTAVVGHSSGEIAAAYAAGLLNSTQAILVAYFRGYSVGKLQSQGTMMAAGVSAQTAKSLIEAKDLQENVRVACVNAPESVTLSGASDGIEALRAEFQDQKKFARKLETGGRAYHSHMMKEIGALYQDLLTPLFAVANSEVPAAARMYSSVGHSTDDLRVLEGHTDWAAYWRQNLEQPVQFSGALASLAEKEGSKLHLIEVGPHSALKGPIQQIRTSIGLDKNSLPYAPSLVRKEDADECLKKLAGTLFVHGHVLDWNKINDLPESGHELVPLHDLAPYPWDYSAPLNWAEPRTSVELRNRKYLRHELLGTFALTGNGIDFTWRNLIRPKEMPWFSDHKLETSVVFPAAGYLAVAIEAVSQVTETRGRLDVAFEFRNVNITAALIVPPDSDPAAKDLELHTTMSLRKLSTVNTSADWHDFAVSSWAAGETTIHCAGSIRVVEPLTESVKHVTTTTVDNDQSFEASPTNRWYQKWDDEGLCFGPYFQSLTSLRTDSERTRSEAIASLRLAPEISSKSYIDSYPVHPITIDACFQAAILGGTAGHLPSLRAWMPVFISECRIQPSSLATSPELEAVIHARSEEVGFSSRRIDATLRDPHGVPVVNLRDARMSLYTGKSSAVQSSSDGKNTNPIDKYMQRQPTLRVHWKPDVARLHPGIERQLQEYVAAFVDQQPLDSDLRDDESIAVIAALVDLAGHKHPRMRVLELGGDDVGYKAKQWLGILNKETAFARCQSWQAGVLDGNGEIVVEGDGEDSSPFDVVVIPRNSSSKQIWSQDPESIASLVSDNGIIVARKSNAAVDVLKALKFNVLPIGQSVILALRPPQWTSLQGRNALIVLGRNPSSTVAEFANTLAAYLRDQAGVALASIVPLDRIDTTDISENDVAISLLETEREFLATISPEDMDRLRAITDVVRDLLWVTGANMLGSVPDPNLTLSNGLSRALMLEQPALRYSVLDIGPVSLLSSTPNAIGTCENALRALAINQEKDDSEFIQRDGILHISRFGPDQDVNSLFRRRLEPLGSLERQTLATAGIARLSVGRPGATDSMFFQQLASTAKTVPEAGYVDIEVKAVGLNAKDVYAIAGRVETRNLTTAIDFSGIITAVGEGVEHLSVGDRVVAWAPNHFTTTERVPAGSVHKLLDHEELTIMSTLITVYGTALYAFNHIAHLRAGESVLIHAGSGGLGFAAITLAQKRGAVVYTTAGSKAKREYLVNELGVPDAHIFNSRDASFVEGILEVTNGRGVDVVLNSLTGDLLHASWACLATFGRFIEVGKRDLVEAGKLDMRVFLRSCTFTAFDLSEFFYAQEPHNRAIWDGLMTQVIELYRAGDIQAPPVKVFGVNEITQAYRTFTQQDRIGKIVISLENPQARIPVVPAAYLSVFDPEKVYLLIGCLGGLGRSLSRWMMSRGARHFVFLGRSGADKPSAQQLVARLQSAGAHVDVVRGDVSRAADVTAAVAASLATGRQIGGVVQAAMGLHEALFTRMPNQAWHTGIDPKWQGTWNLHNALQGHDDALDFFLLTSSVSGTVGTATESNYCAANGFLDAFARWRRSQGKPAVAVGLGMISEVGYLHENPEIEALLLRKGIQPLNEDEFLQVLDLALLSEAAHNPDQAHLLTGLEPAGVRQLKARGFDVSNHGVLTEARAALLAASLAAEQEVLDAQNSTSSSGSNSNTPTTAAPWFKALPGTATSTFASEADAESLNAAILRLIKKRFSNLILMPLEQIDERKALPQFGVDSMIASEFRTWFYTVFKVDIPFLDLMSAQKSLEGLAVVVEGKLVEGWK",
+    before: ["CAFA target sequence", "Offline prediction completed", "Submission rows available"],
     prediction: {
       mf: [
-        { term: "GO:0005524", name: "ATP binding", score: 0.91 },
-        { term: "GO:0016301", name: "kinase activity", score: 0.79 },
-        { term: "GO:0016740", name: "transferase activity", score: 0.65 },
+        { term: "GO:0003735", name: "structural constituent of ribosome", score: 0.739744 },
+        { term: "GO:0003674", name: "molecular_function", score: 0.739744 },
+        { term: "GO:0005198", name: "structural molecule activity", score: 0.739744 },
+        { term: "GO:0001228", name: "DNA-binding transcription activator activity, RNA polymerase II-specific", score: 0.627579 },
       ],
       bp: [
-        { term: "GO:0006468", name: "protein phosphorylation", score: 0.58 },
-        { term: "GO:0007165", name: "signal transduction", score: 0.45 },
+        { term: "GO:0072655", name: "establishment of protein localization to mitochondrion", score: 0.693501 },
+        { term: "GO:0051234", name: "establishment of localization", score: 0.693501 },
+        { term: "GO:0009987", name: "cellular process", score: 0.693501 },
+        { term: "GO:0008104", name: "protein localization", score: 0.693501 },
       ],
-      cc: [{ term: "GO:0005737", name: "cytoplasm", score: 0.68 }],
+      cc: [
+        { term: "GO:0031012", name: "extracellular matrix", score: 0.696260 },
+        { term: "GO:0110165", name: "cellular anatomical structure", score: 0.696260 },
+        { term: "GO:0005575", name: "cellular_component", score: 0.696260 },
+        { term: "GO:0030312", name: "external encapsulating structure", score: 0.696260 },
+      ],
     },
+    textPredictions: [
+      { score: 0.740, description: "A0A017SEX7 is predicted to have molecular function(s): structural constituent of ribosome (GO:0003735); molecular_function (GO:0003674); structural molecule activity (GO:0005198); DNA-binding transcription activator activity, RNA polymerase II-specific (GO:0001228)." },
+      { score: 0.694, description: "A0A017SEX7 is predicted to participate in: establishment of protein localization to mitochondrion (GO:0072655); establishment of localization (GO:0051234); cellular process (GO:0009987); protein localization (GO:0008104)." },
+      { score: 0.696, description: "A0A017SEX7 is predicted to be localized to / part of: extracellular matrix (GO:0031012); cellular anatomical structure (GO:0110165); cellular_component (GO:0005575); external encapsulating structure (GO:0030312)." },
+    ],
   },
   {
-    id: "Q8XYZ1",
-    label: "Localization-focused example",
+    id: "A0A017SGC7",
+    label: "Ribosome structure, signalling and vacuole",
     sequence:
-      "MKVLWAALLVTFLAGCQAKVEAQKVTGVYEPGVTVKDSYVGDEAQSKRGILTLKYPIEHGIITNWDDMEKIWHHTFYNELRVAPEEHPVLLTEAPLNPKANREKMTQIMFETFNTPAMYVAIQAVLSLYASGRTTGIVMDSGDGVTHTVPIYEGYALPHAILRLDLAGRDLTDYLMKILTERGYSFVTTAEREIVRDIKEKLCYVALDFEQEMATAASSSSLEKSYELPDGQVITIGNERFRCPETLFQPSFIGMESAGIHETTYNSIMKCDVDIRKDLYANNVMSGGTTMYPGIADR",
-    before: ["Sequence-only input", "Location unknown", "No cellular context"],
+      "MRRNILTALACSWLTAHAASVDLKSLLLESDIQWASDTVISFSDTPEFEDATVRWNSYNAPTYAGAISPADEEDVVKVVKLAKEHNVPFLATGGRHGCTDMVGLQEGLAIDLSQINSYEVDSDDATVTVGAGSTFGQFQNAIHDAGFMIQSGSVTCPGFIGITLGGGIGRYTGIFGLEIDALISARIVTADGEVLTISETENAELFWGVRGAGFNFGIVTSATYKLHKLADNNNGEILTADFIIPANKTLFYFDWLESLGETMPPNAAGVSRFQFDSIAKEGQIGANWVFIGPEDEGREFLSPILDLQPSVAMLSYVPWNKLIETAGGGQGAMLCEARAPRSLFTGQMRKYTALTLQETFDKITTLWETHPGLAYTSLNFEAFPNHAAVAVPDDATAYPWRDAIGWFQFEIISLEGVGSDSFNAGEHAGQVLRDSWVRTSGYDNHTIYVNYARGDETLEQKYGASKLPRLAALKKKYDPDNVFGWNNALPTEYPGSG",
+    before: ["CAFA target sequence", "Offline prediction completed", "Submission rows available"],
     prediction: {
-      mf: [{ term: "GO:0005198", name: "structural molecule activity", score: 0.52 }],
-      bp: [{ term: "GO:0006950", name: "response to stress", score: 0.39 }],
+      mf: [
+        { term: "GO:0003735", name: "structural constituent of ribosome", score: 0.587254 },
+        { term: "GO:0003674", name: "molecular_function", score: 0.587254 },
+        { term: "GO:0005198", name: "structural molecule activity", score: 0.587254 },
+        { term: "GO:0008270", name: "zinc ion binding", score: 0.556444 },
+      ],
+      bp: [
+        { term: "GO:0007165", name: "signal transduction", score: 0.618038 },
+        { term: "GO:0009987", name: "cellular process", score: 0.618038 },
+        { term: "GO:0050794", name: "regulation of cellular process", score: 0.618038 },
+        { term: "GO:0008150", name: "biological_process", score: 0.618038 },
+      ],
       cc: [
-        { term: "GO:0016020", name: "membrane", score: 0.74 },
-        { term: "GO:0005886", name: "plasma membrane", score: 0.69 },
-        { term: "GO:0005615", name: "extracellular space", score: 0.56 },
+        { term: "GO:0005773", name: "vacuole", score: 0.606738 },
+        { term: "GO:0043227", name: "membrane-bounded organelle", score: 0.606738 },
+        { term: "GO:0043226", name: "organelle", score: 0.606738 },
+        { term: "GO:0110165", name: "cellular anatomical structure", score: 0.606738 },
       ],
     },
+    textPredictions: [
+      { score: 0.587, description: "A0A017SGC7 is predicted to have molecular function(s): structural constituent of ribosome (GO:0003735); molecular_function (GO:0003674); structural molecule activity (GO:0005198); zinc ion binding (GO:0008270)." },
+      { score: 0.618, description: "A0A017SGC7 is predicted to participate in: signal transduction (GO:0007165); cellular process (GO:0009987); regulation of cellular process (GO:0050794); biological_process (GO:0008150)." },
+      { score: 0.607, description: "A0A017SGC7 is predicted to be localized to / part of: vacuole (GO:0005773); membrane-bounded organelle (GO:0043227); organelle (GO:0043226); cellular anatomical structure (GO:0110165)." },
+    ],
   },
 ];
 
@@ -367,7 +408,7 @@ function AspectPredictionCard({ aspect, terms }: { aspect: Aspect; terms: Predic
           {aspect.icon}
         </div>
         <div>
-          <h4 className="font-semibold text-slate-900">{aspect.short}</h4>
+          <h4 className="font-semibold text-slate-900">{aspect.label}</h4>
           <p className="text-xs text-slate-500">{aspect.question}</p>
         </div>
       </div>
@@ -404,13 +445,6 @@ function ClassifyPanel() {
     () => (cleanedCustomSequence ? getCustomDemoPrediction(cleanedCustomSequence) : null),
     [cleanedCustomSequence],
   );
-
-  const textPrediction = useMemo(() => {
-    const mf = example.prediction.mf[0]?.name ?? "a predicted";
-    const bp = example.prediction.bp[0]?.name;
-    const cc = example.prediction.cc.slice(0, 3).map((term) => term.name).join(", ");
-    return `This protein is predicted to have ${mf} molecular function${bp ? `, may participate in ${bp}` : ""}, and may be localized to ${cc}.`;
-  }, [example]);
 
   if (mode === "choice") {
     return (
@@ -572,8 +606,23 @@ function ClassifyPanel() {
           </div>
 
           <div className="rounded-3xl border bg-white p-4 shadow-sm">
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Text prediction</p>
-            <p className="mt-2 text-base leading-7 text-slate-700">{textPrediction}</p>
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Text predictions</p>
+              <span className="text-xs font-medium text-slate-400">submission_with_text.tsv</span>
+            </div>
+            <div className="mt-3 space-y-3">
+              {example.textPredictions.map((textPrediction) => (
+                <div key={textPrediction.description} className="rounded-2xl bg-slate-50 p-4">
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="rounded-full bg-indigo-100 px-2.5 py-1 font-mono text-xs font-semibold text-indigo-700">
+                      {textPrediction.score.toFixed(3)}
+                    </span>
+                    <span className="text-xs text-slate-400">submission confidence</span>
+                  </div>
+                  <p className="text-sm leading-7 text-slate-700">{textPrediction.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -594,7 +643,7 @@ function CorpusProteinCard({ protein }: { protein: CorpusProteinExample }) {
       <div className="mt-4 grid gap-3 md:grid-cols-3">
         {aspectData.map((aspect) => (
           <div key={aspect.key} className="rounded-2xl bg-slate-50 p-3">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{aspect.short}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{aspect.label}</p>
             <div className="mt-2 space-y-1">
               {protein.known_terms[aspect.key].slice(0, 3).map((term) => (
                 <p key={term.term} className="text-xs leading-5 text-slate-700">
