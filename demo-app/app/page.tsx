@@ -408,7 +408,7 @@ function AspectPredictionCard({ aspect, terms }: { aspect: Aspect; terms: Predic
           {aspect.icon}
         </div>
         <div>
-          <h4 className="font-semibold text-slate-900">{aspect.short}</h4>
+          <h4 className="font-semibold text-slate-900">{aspect.label}</h4>
           <p className="text-xs text-slate-500">{aspect.question}</p>
         </div>
       </div>
@@ -643,7 +643,7 @@ function CorpusProteinCard({ protein }: { protein: CorpusProteinExample }) {
       <div className="mt-4 grid gap-3 md:grid-cols-3">
         {aspectData.map((aspect) => (
           <div key={aspect.key} className="rounded-2xl bg-slate-50 p-3">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{aspect.short}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{aspect.label}</p>
             <div className="mt-2 space-y-1">
               {protein.known_terms[aspect.key].slice(0, 3).map((term) => (
                 <p key={term.term} className="text-xs leading-5 text-slate-700">
